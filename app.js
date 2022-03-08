@@ -1,5 +1,5 @@
 require("dotenv").config();
-//async errors
+require("express-async-errors");
 
 const express = require("express");
 const app = express();
@@ -19,8 +19,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/products", productsRouter);
 
-// app.use(notFound());
-// app.use(errorHandler());
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 
